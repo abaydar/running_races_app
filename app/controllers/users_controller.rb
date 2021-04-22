@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
+  before_action :get_user, except: [:index, :new, :create]
+  #if logged in/current user before all CRUD
+
   def index
     @users = User.all
+    #link_to show page
   end
 
   def show
@@ -9,28 +13,46 @@ class UsersController < ApplicationController
   end
 
   def new
-    #render signup form
+    @user = User.new
+    #render /signup form
   end
 
   def create
-    #process signup form
+    user = User.new(user_params)
+    if user.save
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+    else
+      #display error messages
+      render :new
+    end
   end
 
   def edit
-    #edit user profile, edit user form
   end
 
   def update
-    #process edit user form
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      #display error messages 
+      render :edit
+    end
   end
 
   def destroy 
-    #delete user profile
+    @user.destroy 
+    #redirect somewhere
   end
 
   private
   
-  def get_user 
+  def get_user
+    @user = User.find_by(id: params[:id]) 
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :username, :age, :password)
   end
 
 end
