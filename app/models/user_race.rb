@@ -1,4 +1,6 @@
 class UserRace < ApplicationRecord
-    belongs_to :races_run, :class_name => "Race"
+    belongs_to :race
     belongs_to :runner, :class_name => "User"
+    has_many :comments 
+    has_many :commenters, through: :comments, :foreign_key => :commenter_id
 end
