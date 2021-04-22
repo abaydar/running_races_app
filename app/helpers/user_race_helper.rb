@@ -1,0 +1,2 @@
+module UserRaceHelper
+end
