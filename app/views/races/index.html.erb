@@ -1,2 +1,7 @@
 <h1>Races#index</h1>
-<p>Find me in app/views/races/index.html.erb</p>
+<ul>
+<% @races.each do |r| %>
+    <li><%= link_to r.name, race_path(r) %> - <%= r.location%> - <%= r.distance%></li>
+<% end %>
+
+</ul>

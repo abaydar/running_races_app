@@ -1,2 +1,9 @@
 <h1>Races#show</h1>
-<p>Find me in app/views/races/show.html.erb</p>
+<h2><%= @race.name %></h2>
+
+Distance: <%=@race.distance%><br>
+Location: <%=@race.location%><br>
+Date: <%=@race.date.strftime("%B %d, %Y")%><br>
+Age Group: <%=@race.age_group%><br>
+
+<%= link_to "Add this race!", new_user_race_path %>

@@ -1,4 +1,4 @@
-class UserRaceController < ApplicationController
+class UserRacesController < ApplicationController
   def show
     #show comments on a user_race, nested form to add a comment
   end
