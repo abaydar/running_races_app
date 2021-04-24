@@ -8,4 +8,8 @@ class RacesController < ApplicationController
     #show race details, button to add race to "profile" 
   end
 
+  private
+
+  
+
 end

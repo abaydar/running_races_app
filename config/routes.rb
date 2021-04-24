@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
 
-  resources :races, only: [:show, :index]
-  resources :user_races, only: [:show, :new, :create]
-  resources :comments, only: [:create, :update, :edit, :destroy]
-  resources :users, only: [:index, :show, :update, :edit, :destroy]
+  resources :races
+  resources :users, only: [:index, :show, :update, :edit, :destroy] do 
+    resources :races, only: [:index, :show, :new, :create]
+  end
 
 end
