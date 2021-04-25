@@ -4,6 +4,6 @@ class User < ApplicationRecord
   has_many :races, through: :user_races
   validates :name, :username, :age, :password, presence: true
   validates :username, uniqueness: true
-  validates :password, length: {in: 6..12}
+  validates :password, length: {in: 6..16}
 
 end

@@ -1,23 +1,38 @@
 class RacesController < ApplicationController
-  #before action get_race except index, new, create
+  before_action :get_race, except: [:index, :new, :create]
+  before_action :redirect_if_not_logged_in, except: [:index, :show]
+  before_action :redirect_if_not_authorized, except: [:index, :show, :new, :create]
 
   def index
-    @races = Race.all
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @races = @user.races
+    else
+      @races = Race.all
+    end
   end
   
   def show
-    @race = Race.find_by_id(params[:id])
     #show race details, button to add race to "profile" 
   end
 
   def new
-    #redirect_if_not_logged_in
-    @race = Race.new
+    if params[:user_id]
+      @user = User.find_by_id(params[:user_id])
+      @race = @user.races.build
+    else
+      @race = Race.new
+      #@race.build_user
+    end
   end
 
   def create
-    #redirect_if_not_logged_in
-    @race = Race.new(race_params)
+    if params[:user_id]
+      @user = User.find_by_id(params[:user_id])
+      @race = @user.races.build(race_params)
+    else
+      @race = Race.new(race_params)
+    end
+    
     if @race.save
       @race.creator_id = current_user.id
       current_user.races << @race 
@@ -29,15 +44,19 @@ class RacesController < ApplicationController
   end
   
   def edit
-    #redirect_if_not_current_user
   end
 
   def update
-    #redirect_if_not_current_user
+    if @race.update(race_params)
+      redirect_to race_path(@race)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    #redirect_if_not_current_user
+    @race.destroy 
+    redirect_to races_path
   end
 
   private
@@ -50,5 +69,10 @@ class RacesController < ApplicationController
     @race = Race.find_by_id(params[:id])
   end
   
+  def redirect_if_not_authorized
+    if @race.creator_id != current_user.id 
+        redirect_to races_path
+    end
+  end
 
 end

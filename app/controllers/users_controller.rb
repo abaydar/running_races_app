@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   before_action :get_user, except: [:index, :new, :create]
+  before_action :redirect_if_not_logged_in, except: [:index, :show]
+  before_action :redirect_if_not_current_user, only: [:edit, :update, :destroy]
+
   #if logged in/current user before all CRUD
 
   def index
+
     @users = User.all
     #link_to show page
   end
@@ -29,11 +33,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #redirect_if_not_current_user
   end
 
   def update
-    #redirect_if_not_current_user
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
@@ -43,9 +45,8 @@ class UsersController < ApplicationController
   end
 
   def destroy 
-    #redirect_if_not_current_user
     @user.destroy 
-    #redirect somewhere
+    redirect_to races_path
   end
 
   private
@@ -56,6 +57,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :username, :age, :password)
+  end
+
+  def redirect_if_not_current_user
+    if @user.id != current_user.id
+        redirect_to user_path(@user)
+    end
   end
 
 end

@@ -2,5 +2,11 @@
 
 <%= @user.name %><br>
 <%= @user.username %><br>
-<%= @user.age %><br>
+<%= @user.age %><br><br>
 
+Races Run:
+<ul>
+<% @user.races.each do |r| %>
+    <li><%= link_to r.name, race_path(r) %> - <%= r.location%> - <%= r.distance%></li>
+<% end %>
+</ul>

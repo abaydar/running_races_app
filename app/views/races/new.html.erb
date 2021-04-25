@@ -26,5 +26,9 @@ Races#new
     <%= f.label :age_group %>
     <%= f.text_field :age_group %><br>
 
+    <% if @user %>
+        <%= f.hidden_field :creator_id, value: @user.id %>
+    <% end %>
+
     <%= f.submit 'Create Race' %>
 <% end %>

@@ -13,6 +13,5 @@ module ApplicationHelper
             redirect_to login_path
         end
     end
-
     
 end
