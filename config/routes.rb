@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
+  #omniauth path
 
   resources :races
   resources :users, only: [:index, :show, :update, :edit, :destroy] do 
