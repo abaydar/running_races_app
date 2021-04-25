@@ -2,6 +2,16 @@ Races#edit
 Races#new
 <h1>Edit a Race:</h1>
 <%= form_with model: @race do |f| %>
+
+<% if @race.errors.any? %>
+    <h3>Please note errors below:</h3>
+    <ul>
+    <% @race.errors.full_messages.each do |m| %>
+        <li><%= m %>
+    <% end %>
+    </ul>
+<% end %>
+
     <%= f.label :name %>
     <%= f.text_field :name %><br>
 

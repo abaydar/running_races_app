@@ -18,10 +18,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      session[:user_id] = user.id
-      redirect_to user_path(user)
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
       #display error messages
       render :new
@@ -29,9 +29,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    #redirect_if_not_current_user
   end
 
   def update
+    #redirect_if_not_current_user
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
@@ -41,6 +43,7 @@ class UsersController < ApplicationController
   end
 
   def destroy 
+    #redirect_if_not_current_user
     @user.destroy 
     #redirect somewhere
   end

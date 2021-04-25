@@ -1,6 +1,16 @@
 <h1>Users#edit</h1>
 
 <%= form_with model: @user do |f| %>
+
+<% if @user.errors.any? %>
+    <h3>Please note errors below:</h3>
+    <ul>
+    <% @user.errors.full_messages.each do |m| %>
+        <li><%= m %>
+    <% end %>
+    </ul>
+<% end %>
+
     <%= f.label :name %>
     <%= f.text_field :name %><br>
 
