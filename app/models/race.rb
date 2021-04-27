@@ -8,5 +8,7 @@ class Race < ApplicationRecord
     validates :name, :distance, :location, :date, presence: true 
     validates :name, uniqueness: { case_sensitive: false }
 
+    
+
 end
 

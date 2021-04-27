@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+<%= form_for @user.races.build do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+        Select a Race:
+        <%= f.collection_select :id, Race.all, :id, :name, prompt: true%>
+
+        <%= f.submit 'Add Race' %>
+<% end %>

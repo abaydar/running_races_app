@@ -6,4 +6,5 @@ Location: <%=@race.location%><br>
 Date: <%=@race.date.strftime("%B %d, %Y")%><br>
 Age Group: <%=@race.age_group%><br>
 
-Add to "My Races":
+<%= link_to "Add to My Races", new_race_user_race_path(@race) %>
+

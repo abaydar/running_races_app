@@ -17,19 +17,14 @@ class RacesController < ApplicationController
   end
 
   def new
-    @user = User.find_by_id(params[:user_id])
-    @race = @user.races.build
+    @race = current_user.races.build
     @user_races = @race.user_races.build
   end
 
   def create
-    @user = User.find_by_id(params[:user_id])
-    @race = @user.races.build(race_params)
-    # @user_races = @race.user_races.build(race_params(user_races_attributes: [:finish_time, :review]))
-    binding.pry
+    @race = current_user.races.build(race_params)
+
     if @race.save
-      @race.creator_id = current_user.id
-      current_user.races << @race 
       redirect_to user_path(current_user.id)
     else
       #display errors
@@ -62,11 +57,5 @@ class RacesController < ApplicationController
   def get_race
     @race = Race.find_by_id(params[:id])
   end
-  
-  # def redirect_if_not_authorized
-  #   if @race.creator_id != current_user.id 
-  #       redirect_to races_path
-  #   end
-  # end
 
 end

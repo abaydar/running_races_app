@@ -1,0 +1,15 @@
+<h1>UserRaces#new</h1>
+<p>User can input finish time & review for a completed race</p>
+
+<%= form_with model: @user_race, url: race_user_races_path do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    
+    <%= f.label :finish_time %>
+    <%= f.text_field :finish_time %><br>
+
+    <%= f.label :review %>
+    <%= f.text_area :review %><br>
+
+    <%= f.submit 'Add to My Races' %>
+<% end %>
+
