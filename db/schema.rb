@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_210636) do
+ActiveRecord::Schema.define(version: 2021_04_27_142216) do
 
   create_table "races", force: :cascade do |t|
     t.string "distance"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2021_04_25_210636) do
   create_table "user_races", force: :cascade do |t|
     t.integer "race_id"
     t.string "finish_time"
-    t.integer "rating"
     t.text "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

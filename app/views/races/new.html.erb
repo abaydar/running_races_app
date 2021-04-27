@@ -26,8 +26,15 @@ Races#new
     <%= f.label :age_group %>
     <%= f.text_field :age_group %><br>
 
-    <% if @user %>
-        <%= f.hidden_field :creator_id, value: @user.id %>
+    <%= f.hidden_field :creator_id, value: @user.id %>
+
+
+    <%= f.fields_for :user_races, @user.races.build do |user_races_fields| %>
+        <%= user_races_fields.label :finish_time %>
+        <%= user_races_fields.text_field :finish_time %><br>
+
+        <%= user_races_fields.label :review %>
+        <%= user_races_fields.text_area :review %><br>
     <% end %>
 
     <%= f.submit 'Create Race' %>

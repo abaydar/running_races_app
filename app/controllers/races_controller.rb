@@ -1,4 +1,5 @@
 class RacesController < ApplicationController
+  include RacesHelper
   before_action :get_race, except: [:index, :new, :create]
   before_action :redirect_if_not_logged_in, except: [:index, :show]
   before_action :redirect_if_not_authorized, except: [:index, :show, :new, :create]
@@ -16,22 +17,13 @@ class RacesController < ApplicationController
   end
 
   def new
-    if params[:user_id]
-      @user = User.find_by_id(params[:user_id])
-      @race = @user.races.build
-    else
-      @race = Race.new
-      #@race.build_user
-    end
+    @user = User.find_by_id(params[:user_id])
+    @race = @user.races.build
   end
 
   def create
-    if params[:user_id]
-      @user = User.find_by_id(params[:user_id])
-      @race = @user.races.build(race_params)
-    else
-      @race = Race.new(race_params)
-    end
+    @user = User.find_by_id(params[:user_id])
+    @race = @user.races.build(race_params)
     
     if @race.save
       @race.creator_id = current_user.id
@@ -62,17 +54,17 @@ class RacesController < ApplicationController
   private
 
   def race_params
-    params.require(:race).permit(:name, :distance, :location, :date, :age_group, :creator_id)
+    params.require(:race).permit(:name, :distance, :location, :date, :age_group, :creator_id, user_races_attributes: [:finish_time, :review])
   end
 
   def get_race
     @race = Race.find_by_id(params[:id])
   end
   
-  def redirect_if_not_authorized
-    if @race.creator_id != current_user.id 
-        redirect_to races_path
-    end
-  end
+  # def redirect_if_not_authorized
+  #   if @race.creator_id != current_user.id 
+  #       redirect_to races_path
+  #   end
+  # end
 
 end
