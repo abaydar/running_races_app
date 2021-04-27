@@ -1,6 +1,6 @@
 Races#new
 <h1>Add a Race:</h1>
-<%= form_with model: @race do |f| %>
+<%= form_with model: @race, url: user_races_path(@user)  do |f| %>
 
 <% if @race.errors.any? %>
     <h3>Please note errors below:</h3>
@@ -29,7 +29,9 @@ Races#new
     <%= f.hidden_field :creator_id, value: @user.id %>
 
 
-    <%= f.fields_for :user_races, @user.races.build do |user_races_fields| %>
+    <%= f.fields_for :user_races do |user_races_fields| %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+   
         <%= user_races_fields.label :finish_time %>
         <%= user_races_fields.text_field :finish_time %><br>
 

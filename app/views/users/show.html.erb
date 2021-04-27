@@ -10,3 +10,16 @@ Races Run:
     <li><%= link_to r.name, race_path(r) %> - <%= r.location%> - <%= r.distance%></li>
 <% end %>
 </ul>
+
+Add A Race:
+<%= form_for @user.races.build do |f| %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+        Select a Race:
+        <%= f.collection_select :id, Race.all, :id, :name, prompt: true%>
+
+
+        <%= f.submit 'Add Race' %>
+<% end %>
+
+Or Create a new race:
+<%= link_to "Add a new Race", new_user_race_path(@user) %>

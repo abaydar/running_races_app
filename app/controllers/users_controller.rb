@@ -54,13 +54,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :username, :age, :password)
+    params.require(:user).permit(:name, :username, :age, :password, :race_id)
   end
 
-  # def redirect_if_not_current_user
-  #   if @user.id != current_user.id
-  #       redirect_to user_path(@user)
-  #   end
-  # end
 
 end
