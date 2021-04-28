@@ -7,4 +7,12 @@ Date: <%=@race.date.strftime("%B %d, %Y")%><br>
 Age Group: <%=@race.age_group%><br>
 
 <%= link_to "Add to My Races", new_race_user_race_path(@race) %>
+<br>
+<br>
+Reviews:<br>
+<% @race.user_races.each do |r| %>
+    Ran by: <%= link_to r.user.username, user_path(r.user) %><br>
+    Finish Time: <%= r.finish_time %><br>
+    Review: <%= r.review %>
+<% end %>
 

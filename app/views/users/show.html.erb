@@ -1,14 +1,12 @@
 <h1>Users#show</h1>
 
-<%= @user.name %><br>
-<%= @user.username %><br>
-<%= @user.age %><br><br>
+Name: <%= @user.name %><br>
+Username: <%= @user.username %><br>
+Age: <%= @user.age %><br><br>
 
 Races Run:
 <ul>
-<% @user.races.each do |r| %>
-    <li><%= link_to r.name, race_path(r) %> - <%= r.location%> - <%= r.distance%></li>
-<% end %>
+<%= link_to "#{@user.name}'s Races", user_races_path(@user) %>
 </ul>
 
 Add an Existing Race:

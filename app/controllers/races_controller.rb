@@ -23,7 +23,7 @@ class RacesController < ApplicationController
 
   def create
     @race = current_user.races.build(race_params)
-
+    binding.pry
     if @race.save
       redirect_to user_path(current_user.id)
     else

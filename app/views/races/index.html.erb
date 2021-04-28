@@ -1,7 +1,11 @@
 <h1>Races#index</h1>
+<h2>conditionally render for nested route - show finish times?</h2>
 <ul>
 <% @races.each do |r| %>
     <li><%= link_to r.name, race_path(r) %> - <%= r.location%> - <%= r.distance%></li>
 <% end %>
 
+
 </ul>
+<br>
+<%= link_to "Create Race", new_race_path %>
