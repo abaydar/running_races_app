@@ -12,7 +12,6 @@ Age Group: <%=@race.age_group%><br>
 Reviews:<br>
 <ul>
 <% @race.user_races.each do |r| %>
-<%binding.pry%>
   <li>  Ran by: <%= link_to r.user.name, user_path(r.user) %><br>
     Finish Time: <%= r.finish_time %><br>
     Review: <%= r.review %><br></li>
