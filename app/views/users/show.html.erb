@@ -10,13 +10,15 @@ Races Run:
 </ul>
 
 Add an Existing Race:
-<%= form_for @user.races.build, url: user_path(current_user) do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-        Select a Race:
-        <%= f.collection_select :id, Race.all, :id, :name, prompt: true%>
+<%= link_to 'Existing Races', races_path %><br>
 
-        <%= f.submit 'Add Race' %>
+
+
+<%= select_tag :race, options_from_collection_for_select(Race.all, :id, :name), prompt: "Select a Race", :selected => params[:race_id] %><br>
+<% if params[:race_id]%>
+    <%= link_to 'Add to My Races', new_race_user_race_path(params[:race_id]) %>
 <% end %>
-
-Or
+Or<br>
 <%= link_to "Create Race", new_race_path %>
+
+<%= button_to 'Logout', logout_path %>
