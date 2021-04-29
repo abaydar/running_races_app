@@ -27,6 +27,7 @@ class SessionsController < ApplicationController
             u.name = request.env['omniauth.auth'][:info][:name]
             u.password = SecureRandom.hex(15)
         end
+        binding.pry
     
         if user.valid?
             session[:user_id] = user.id
