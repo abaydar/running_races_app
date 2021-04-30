@@ -1,27 +1,24 @@
-<h1>Races#index</h1>
-
-<% if !@user %>
-  <%= form_with url: races_path, method: :get do |f| %>
-    <%= f.label :query, "Search for:" %>
-    <%= f.text_field :query %>
-    <%= f.submit "Search" %>
-  <% end %>
-<% end %>
-
-
-<ul>
 <% if @user %>
+<h1><%="#{@user.name}'s Races" %></h1>
+<ul>
   <% @user_races.each do |r| %>
     <li> <%= find_race(r.race_id).name %><br>
     Distance: <%= find_race(r.race_id).distance %><br> 
     Finish Time: <%=display_finish_time(r.start_time, r.finish_time)%> </li>
   <% end %> 
+  </ul>
 <%else%>
+<h1>All Races</h1>
+  <%= form_with url: races_path, method: :get do |f| %>
+    <%= f.label :query, "Search for:" %>
+    <%= f.text_field :query %>
+    <%= f.submit "Search" %>
+  <% end %>
+  <ul>
   <% @races.each do |r| %>
       <li><%= link_to r.name, race_path(r) %> - <%= r.location%> - <%= r.distance%></li>
   <% end %>
-<% end %>
 </ul>
+<% end %>
 <br>
 
-<%= link_to "Create Race", new_race_path %>

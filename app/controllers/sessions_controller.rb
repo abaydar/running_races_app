@@ -30,8 +30,6 @@ class SessionsController < ApplicationController
                 u.password = SecureRandom.hex(15)
             end
         # end 
-
-        binding.pry 
         
         if user.valid?
             session[:user_id] = user.id

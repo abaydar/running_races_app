@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   include ApplicationHelper
   before_action :get_user, except: [:index, :new, :create]
-  before_action :redirect_if_not_logged_in, except: [:index, :show]
-  before_action :redirect_if_not_current_user, only: [:edit, :update, :destroy]
+  # before_action :redirect_if_not_logged_in, except: [:index, :show, :new, :create]
+  before_action :redirect_if_not_current_user, :redirect_if_not_logged_in, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all

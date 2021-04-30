@@ -21,4 +21,10 @@ module ApplicationHelper
         Time.at(t).utc.strftime("%H:%M:%S")
     end
 
+    def create_race
+        if logged_in?
+            button_to "Create a New Race", new_race_path, method: :get
+        end
+    end
+
 end
