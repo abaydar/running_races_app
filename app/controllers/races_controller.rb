@@ -6,11 +6,11 @@ class RacesController < ApplicationController
 
   def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
-      @races = @user.races
-    else
-      # @races = Race.all
-      @races = Race.search(params[:query]) 
+    #  @races = @user.races
+     @user_races = @user.user_races
 
+    else
+      @races = Race.search(params[:query]) 
     end
   end
   
@@ -52,7 +52,7 @@ class RacesController < ApplicationController
   private
 
   def race_params
-    params.require(:race).permit(:name, :distance, :location, :date, :age_group, :creator_id, user_races_attributes: [:finish_time, :review, :user_id])
+    params.require(:race).permit(:name, :distance, :location, :date, :age_group, :creator_id, user_races_attributes: [:start_time, :finish_time, :review, :user_id])
   end
 
   def get_race

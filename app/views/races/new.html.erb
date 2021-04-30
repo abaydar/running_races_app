@@ -32,9 +32,11 @@ Races#new
     <%= f.fields_for :user_races do |user_races_fields| %>
         <%= user_races_fields.hidden_field :user_id, value: current_user.id %>
    
-        <%= user_races_fields.label :finish_time %>
-        <%= user_races_fields.text_field :finish_time %><br>
+        <%= user_races_fields.label :start_time %>
+        <%= user_races_fields.time_select :start_time, include_seconds: true %><br>
 
+        <%= user_races_fields.label :finish_time %>
+        <%= user_races_fields.time_select :finish_time, include_seconds: true %><br>
         <%= user_races_fields.label :review %>
         <%= user_races_fields.text_area :review %><br>
     <% end %>

@@ -4,17 +4,20 @@ Name: <%= @user.name %><br>
 Username: <%= @user.username %><br>
 Age: <%= @user.age %><br><br>
 
-Races Run:
-<ul>
-<%= link_to "#{@user.name}'s Races", user_races_path(@user) %>
-</ul>
+<% if @race %>
+    Last Race:
+    <%= link_to @race.name, race_path(@race) %><br>
+<% end %>
 
-Add an Existing Race:
- %>
+All Races:
+
+<%= link_to "#{@user.name}'s Races", user_races_path(@user) %><br>
+
+ <%= form_with url: races_path, method: :get do |f| %>
+  <%= f.label :query, "Add an Existing Race:" %>
+  <%= f.text_field :query %>
+  <%= f.submit "Search" %>
+<% end %>
 
 
-
-
-<%= link_to "Create Race", new_race_path %>
-
-<%= button_to 'Logout', logout_path %>
+<%= button_to "Create A New Race", new_race_path, method: :get %>
