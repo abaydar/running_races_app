@@ -8,7 +8,9 @@ class RacesController < ApplicationController
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
       @races = @user.races
     else
-      @races = Race.all
+      # @races = Race.all
+      @races = Race.search(params[:query]) 
+
     end
   end
   

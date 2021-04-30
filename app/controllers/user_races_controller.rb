@@ -24,6 +24,6 @@ class UserRacesController < ApplicationController
   private
 
   def user_race_params
-    params.require(:user_race).permit(:finish_time, :review, :user_id, :race_id)
+    params.require(:user_race).permit(:finish_time, :start_time, :review, :user_id, :race_id)
   end
 end

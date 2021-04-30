@@ -22,18 +22,18 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        unless user = User.find_by(username: request.env['omniauth.auth'][:info][:email])
+        # unless user = User.find_by(username: request.env['omniauth.auth'][:info][:email])
         
             user = User.find_or_create_by(uid: request.env['omniauth.auth'][:uid], provider: request.env['omniauth.auth'][:provider]) do |u|  
                 u.username = request.env['omniauth.auth'][:info][:email]
                 u.name = request.env['omniauth.auth'][:info][:name]
                 u.password = SecureRandom.hex(15)
             end
-        end 
+        # end 
 
         binding.pry 
         
-        if user.id
+        if user.valid?
             session[:user_id] = user.id
             redirect_to races_path
         else

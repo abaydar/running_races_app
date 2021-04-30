@@ -8,6 +8,14 @@ class Race < ApplicationRecord
     validates :name, :distance, :location, :date, presence: true 
     validates :name, uniqueness: { case_sensitive: false }
 
+    def self.search(query)
+        if query
+          self.where('name LIKE ?', "%#{query}%")
+        else
+          self.all
+        end
+    
+    end
     
 
 end
