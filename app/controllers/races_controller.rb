@@ -6,16 +6,13 @@ class RacesController < ApplicationController
 
   def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
-    #  @races = @user.races
      @user_races = @user.user_races
-
     else
       @races = Race.search(params[:query]) 
     end
   end
   
   def show
-    #show race details, button to add race to "profile" 
   end
 
   def new
@@ -28,7 +25,6 @@ class RacesController < ApplicationController
     if @race.save
       redirect_to user_path(current_user.id)
     else
-      #display errors
       render :new
     end
   end

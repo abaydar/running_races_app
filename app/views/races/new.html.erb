@@ -2,14 +2,7 @@ Races#new
 <h1>Add a Race:</h1>
 <%= form_with model: @race, url: races_path  do |f| %>
 
-<% if @race.errors.any? %>
-    <h3>Please note errors below:</h3>
-    <ul>
-    <% @race.errors.full_messages.each do |m| %>
-        <li><%= m %>
-    <% end %>
-    </ul>
-<% end %>
+<%= display_errors_for_race %>
 
     <%= f.label :name %>
     <%= f.text_field :name %><br>
