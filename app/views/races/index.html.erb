@@ -9,11 +9,7 @@
   </ul>
 <%else%>
 <h1>All Races</h1>
-  <%= form_with url: races_path, method: :get do |f| %>
-    <%= f.label :query, "Search for:" %>
-    <%= f.text_field :query %>
-    <%= f.submit "Search" %>
-  <% end %>
+  <%= render partial: "search" %>
   <ul>
   <% @races.each do |r| %>
       <li><%= link_to r.name, race_path(r) %> - <%= r.location%> - <%= r.distance%></li>

@@ -1,0 +1,5 @@
+ <%= form_with url: races_path, method: :get do |f| %>
+  <%= f.label :query, "Search Races:" %>
+  <%= f.text_field :query %>
+  <%= f.submit "Search" %>
+<% end %>

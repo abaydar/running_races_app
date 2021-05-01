@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     if @user.user_races.present?
       @user_race = @user.user_races.last
-      @races = Race.find_by_id(@user_race.race_id)
+      @race = Race.find_by_id(@user_race.race_id)
     end
     #show profile with all races (link_to races show page) and link to user_race show page (with comments)
     #display finish time, rating, review

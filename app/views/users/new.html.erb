@@ -1,31 +1,7 @@
-<h1>Users#new</h1>
-
 <h2>Sign Up Form</h2>
 <%= form_with model: @user, url: '/signup', method: :post do |f| %>
 
-<% if @user.errors.any? %>
-    <h3>Please note errors below:</h3>
-    <ul>
-    <% @user.errors.full_messages.each do |m| %>
-        <li><%= m %>
-    <% end %>
-    </ul>
-<% end %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-
-    <%= f.label :username %>
-    <%= f.text_field :username %><br>
-
-    <%= f.label :age %>
-    <%= f.text_field :age %><br>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
-
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br>
+    <%= render partial: "form", locals: {p: f} %>
 
     <%= f.submit 'Sign Up' %>
 <% end %>

@@ -13,10 +13,6 @@ All Races:
 
 <%= link_to "#{@user.name}'s Races", user_races_path(@user) %><br>
 
- <%= form_with url: races_path, method: :get do |f| %>
-  <%= f.label :query, "Add an Existing Race:" %>
-  <%= f.text_field :query %>
-  <%= f.submit "Search" %>
-<% end %>
+  <%= render partial: "races/search" %>
 
 
