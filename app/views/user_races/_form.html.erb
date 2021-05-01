@@ -1,0 +1,16 @@
+<%= form_with model: user_race, url: race_user_races_path do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :race_id, value: @race.id %>
+
+    <%= f.label :start_time %>
+    <%= f.time_select :start_time, include_seconds: true %><br>
+
+    <%= f.label :finish_time %>
+    <%= f.time_select :finish_time, include_seconds: true %><br>
+
+    <%= f.label :review %>
+    <%= f.text_area :review %><br>
+
+    <%= f.submit %>
+<% end %>
+
