@@ -2,22 +2,7 @@
 
 <%= form_with model: @race do |f| %>
 
-<%= display_errors_for_race %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-
-    <%= f.label :distance %>
-    <%= f.text_field :distance %><br>
-
-    <%= f.label :location %>
-    <%= f.text_field :location %><br>
-
-    <%= f.label :date %>
-    <%= f.date_field :date %><br>
-
-    <%= f.label :age_group %>
-    <%= f.text_field :age_group %><br>
+    <%= render partial: "form", locals: {p: f} %>
 
     <%= f.submit 'Edit Race' %>
 <% end %>

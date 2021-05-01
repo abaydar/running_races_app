@@ -1,18 +1,16 @@
-<%= form_with model: @race, url: races_path  do |f| %>
-
 <%= display_errors_for_race %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
+    <%= p.label :name %>
+    <%= p.text_field :name %><br>
 
-    <%= f.label :distance %>
-    <%= f.text_field :distance %><br>
+    <%= p.label :distance %>
+    <%= p.text_field :distance %><br>
 
-    <%= f.label :location %>
-    <%= f.text_field :location %><br>
+    <%= p.label :location %>
+    <%= p.text_field :location %><br>
 
-    <%= f.label :date %>
-    <%= f.date_field :date %><br>
+    <%= p.label :date %>
+    <%= p.date_field :date %><br>
 
-    <%= f.label :age_group %>
-    <%= f.text_field :age_group %><br>
+    <%= p.label :age_group %>
+    <%= p.text_field :age_group %><br>

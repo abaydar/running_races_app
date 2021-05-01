@@ -10,6 +10,12 @@ module RacesHelper
         end
     end
 
+    def edit_race
+        if @race.creator_id == current_user.id
+            button_to "Edit Race", edit_race_path(@race), method: :get
+        end
+    end
+    
     def display_errors_for_race
         if @race.errors.any?
             content_tag(:h3, "Please note errors below:")

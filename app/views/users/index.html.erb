@@ -2,7 +2,7 @@
 <ul>
 <% @users.each do |u| %>
     <%=u.id%>
- <li><%= u.name %><br>
+ <li><%= link_to u.name, user_path(u) %><br>
     Number of Races Run:<%= u.races.count %></li>
 <%end%>
 </ul>

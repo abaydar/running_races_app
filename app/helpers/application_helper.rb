@@ -27,6 +27,12 @@ module ApplicationHelper
         end
     end
 
+    def home_page
+        if logged_in?
+            button_to "Home Page", user_path(current_user), method: :get 
+        end
+    end
+
 
 
 end
