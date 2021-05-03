@@ -1,5 +1,4 @@
 class RacesController < ApplicationController
-  include RacesHelper
   before_action :get_race, except: [:index, :new, :create]
   before_action :redirect_if_not_logged_in, except: [:index, :show]
   before_action :redirect_if_not_authorized, except: [:index, :show, :new, :create]

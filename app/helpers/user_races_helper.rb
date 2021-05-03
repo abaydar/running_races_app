@@ -11,4 +11,12 @@ module UserRacesHelper
         end
     end
 
+    def delete_user_race(id, race_id)
+        race = Race.find_by_id(race_id)
+        user_race = UserRace.find_by_id(id)
+        if user_race.user_id == current_user.id
+            button_to "Delete Review & Remove from My Races", race_user_race_path(race, user_race), method: :delete
+        end
+    end
+
 end

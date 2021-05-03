@@ -14,7 +14,9 @@ Reviews:<br>
 <% @race.user_races.each do |r| %>
   <li>  Ran by: <%= link_to r.user.name, user_path(r.user) %><br>
     Finish Time: <%= display_finish_time(r.start_time, r.finish_time) %><br>
-    Review: <%= r.review %><br></li>
+    Review: <%= r.review %><br>
+    <%= delete_user_race(r.id, r.race_id) %>
+    </li>
 <% end %>
 <% end %>
 </ul>
