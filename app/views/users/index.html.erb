@@ -1,8 +1,8 @@
-<h1>Users#index</h1>
+<h1>All Users</h1>
 <ul>
 <% @users.each do |u| %>
-    <%=u.id%>
  <li><%= link_to u.name, user_path(u) %><br>
-    Number of Races Run:<%= u.races.count %></li>
+    Number of Races Run: <%= u.races.count %></li>
 <%end%>
 </ul>
+<%= link_to "All Races", races_path %>

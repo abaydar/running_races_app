@@ -6,15 +6,14 @@ Age: <%= @user.age %><br><br>
 
 <% if @race %>
     Last Race:
-    <%= link_to @race.name, race_path(@race) %><br>
+    <%= link_to @race.name, race_path(@race) %><br><br>
 <% end %>
 
-All Races:
 
-<%= link_to "#{@user.name}'s Races", user_races_path(@user) %><br>
+<%= link_to "#{@user.name}'s Races", user_races_path(@user) %><br><br>
 
 <%= render partial: "races/search" %><br>
+<%= link_to "All Races", races_path %><br><br>
 <%= create_race %>
-
 
 

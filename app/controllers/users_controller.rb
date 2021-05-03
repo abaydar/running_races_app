@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
-  include ApplicationHelper
   before_action :get_user, except: [:index, :new, :create]
-  # before_action :redirect_if_not_logged_in, except: [:index, :show, :new, :create]
   before_action :redirect_if_not_current_user, :redirect_if_not_logged_in, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
-    #link_to show page
   end
 
   def show
@@ -14,13 +11,10 @@ class UsersController < ApplicationController
       @user_race = @user.user_races.last
       @race = Race.find_by_id(@user_race.race_id)
     end
-    #show profile with all races (link_to races show page) and link to user_race show page (with comments)
-    #display finish time, rating, review
   end
 
   def new
     @user = User.new
-    #render /signup form
   end
 
   def create
@@ -29,7 +23,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      #display error messages
       render :new
     end
   end
@@ -41,7 +34,6 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
-      #display error messages 
       render :edit
     end
   end

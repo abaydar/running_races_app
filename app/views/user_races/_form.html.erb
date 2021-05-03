@@ -1,4 +1,6 @@
 <%= form_with model: user_race, url: race_user_races_path do |f| %>
+    <%= display_errors_for_user_race %>
+
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :race_id, value: @race.id %>
 
