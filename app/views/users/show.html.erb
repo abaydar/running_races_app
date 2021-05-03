@@ -11,6 +11,7 @@ Age: <%= @user.age %><br><br>
 
 
 <%= link_to "#{@user.name}'s Races", user_races_path(@user) %><br><br>
+<%= link_to "All Runners", users_path %>
 
 <%= render partial: "races/search" %><br>
 <%= link_to "All Races", races_path %><br><br>
