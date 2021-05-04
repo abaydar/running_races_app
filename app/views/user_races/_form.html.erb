@@ -1,5 +1,4 @@
-<%= form_with model: user_race, url: race_user_races_path do |f| %>
-<%= render partial: "races/error", locals: {object: user_race}%>
+<%= render partial: "races/error", locals: {object: @user_race}%>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :race_id, value: @race.id %>
@@ -14,5 +13,4 @@
     <%= f.text_area :review %><br>
 
     <%= f.submit 'Add to My Races' %>
-<% end %>
 

@@ -13,6 +13,14 @@ module UserRacesHelper
             button_to "Remove from My Races", race_user_race_path(race, user_race), method: :delete
         end
     end
+
+    def edit_user_race(id, race_id)
+        race = Race.find_by_id(race_id)
+        user_race = UserRace.find_by_id(id)
+        if user_race.user_id == current_user.id
+            link_to "Edit", edit_race_user_race_path(race, user_race)
+        end
+    end
     
     # def display_errors_for_user_race
     #     if @user_race.errors.any?

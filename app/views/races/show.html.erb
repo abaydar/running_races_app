@@ -13,6 +13,7 @@ Reviews:<br>
   <li>  Ran by: <%= link_to r.user.name, user_path(r.user) %><br>
     Finish Time: <%= display_finish_time(r.start_time, r.finish_time) %><br>
     Review: <%= r.review %><br>
+    <%=edit_user_race(r.id, r.race_id)%>
     <%= delete_user_race(r.id, r.race_id) %>
     </li>
 <% end %>

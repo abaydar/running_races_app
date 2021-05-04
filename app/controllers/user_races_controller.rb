@@ -1,7 +1,7 @@
 class UserRacesController < ApplicationController
   before_action :redirect_if_not_logged_in, :get_race
   before_action :redirect_if_not_current_user, only: [:edit, :update, :destroy]
-  before_action :get_user_race, only: [:edit, :destroy]
+  before_action :get_user_race, only: [:edit, :update, :destroy]
 
   def new
     @user_race = UserRace.new
@@ -20,6 +20,7 @@ class UserRacesController < ApplicationController
   end
 
   def update
+    binding.pry
     @user_race.update(user_race_params)
     redirect_to race_path(@race)
   end
