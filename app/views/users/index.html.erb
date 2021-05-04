@@ -2,7 +2,7 @@
 <ul>
 <% @users.each do |u| %>
  <li><%= link_to u.name, user_path(u) %><br>
-    Number of Races Run: <%= u.races.count %></li>
+    <%= render partial: "user", locals: {user: u}%>
 <%end%>
 </ul>
 <%= link_to "All Races", races_path %>

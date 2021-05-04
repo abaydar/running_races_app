@@ -14,7 +14,6 @@ class Race < ApplicationRecord
         else
           self.all
         end
-    
     end
     
 

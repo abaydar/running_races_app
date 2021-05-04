@@ -1,13 +1,10 @@
 <h1>Users#show</h1>
-
 Name: <%= @user.name %><br>
-Username: <%= @user.username %><br>
-Age: <%= @user.age %><br><br>
+<%= render partial: "user", locals: {user: @user}%>
 
-<% if @race %>
-    Last Race:
-    <%= link_to @race.name, race_path(@race) %><br><br>
-<% end %>
+<% display_last_race do %>
+    Last Race: <%= link_to @race.name, race_path(@race)%>
+<% end %><br><br>
 
 
 <%= link_to "#{@user.name}'s Races", user_races_path(@user) %><br><br>

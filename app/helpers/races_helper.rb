@@ -27,9 +27,16 @@ module RacesHelper
         end
     end
 
+    def display_last_race
+        if @race
+         yield
+        end
+    end   
+
     # def display_all_races
     #     content_tag(:ul) do
     #         @races.each do |r|
+    #             yield
     #             concat content_tag(:li, "#{link_to r.name, race_path(r)} - #{r.location} - #{r.distance}")
     #         end
     #     end 

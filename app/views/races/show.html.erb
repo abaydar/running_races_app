@@ -1,9 +1,7 @@
 <h2><%= @race.name %></h2>
 
-Distance: <%=@race.distance%><br>
-Location: <%=@race.location%><br>
-Date: <%=@race.date.strftime("%B %d, %Y")%><br>
-<br>
+<%= render partial: "race", locals: {race: @race}%>
+
 
 <%= button_to "Add to My Races", new_race_user_race_path(@race), method: :get %>
 <br>

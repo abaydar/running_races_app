@@ -14,8 +14,9 @@
   <%= render partial: "search" %>
   <ul>
   <% @races.each do |r| %>
-      <li><%= link_to r.name, race_path(r) %> - <%= r.location%> - <%= r.distance%></li>
-  <% end %>
+      <li><%= link_to r.name, race_path(r) %><br>
+      <%= render partial: "race", locals: {race: r}%></li>
+ <% end %>
 </ul>
 <% end %>
 <br>
