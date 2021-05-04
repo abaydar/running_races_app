@@ -5,7 +5,6 @@ module RacesHelper
             button_to "Create a New Race", new_race_path, method: :get
         end
     end
-
     def find_race(id)
         Race.find_by_id(id)
     end
@@ -24,7 +23,10 @@ module RacesHelper
     
     def display_last_race
         if @race
-         yield
+         content_tag(:h3) do 
+            concat "Last Race: " 
+            concat link_to @race.name, race_path(@race)
+         end
         end
     end   
 

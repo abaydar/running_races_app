@@ -2,9 +2,8 @@
 Name: <%= @user.name %><br>
 <%= render partial: "user", locals: {user: @user}%>
 
-<% display_last_race do %>
-    Last Race: <%= link_to @race.name, race_path(@race)%>
-<% end %><br><br>
+<%= display_last_race %>
+
 
 
 <%= link_to "#{@user.name}'s Races", user_races_path(@user) %><br><br>

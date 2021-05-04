@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @top_user = User.most_races_run.first
   end
 
   def show

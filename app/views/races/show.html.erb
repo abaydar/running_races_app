@@ -6,19 +6,22 @@
 <%= button_to "Add to My Races", new_race_user_race_path(@race), method: :get %>
 <br>
 <br>
+
+
 Reviews:<br>
 <ul>
 <% if @race.user_races != [] %>
-<% @race.user_races.each do |r| %>
-  <li>  Ran by: <%= link_to r.user.name, user_path(r.user) %><br>
-    Finish Time: <%= display_finish_time(r.start_time, r.finish_time) %><br>
-    Review: <%= r.review %><br>
-    <%=edit_user_race(r.id, r.race_id)%>
-    <%= delete_user_race(r.id, r.race_id) %>
-    </li>
-<% end %>
+    <% @race.user_races.each do |r| %>
+      <li>  Ran by: <%= link_to r.user.name, user_path(r.user) %><br>
+        Finish Time: <%= display_finish_time(r.start_time, r.finish_time) %><br>
+        Review: <%= r.review %><br>
+        <%=edit_user_race(r.id, r.race_id)%>
+        <%= delete_user_race(r.id, r.race_id) %>
+        </li>
+    <% end %>
 <% end %>
 </ul>
+
 <%= link_to "All Races", races_path %><br><br>
 <%= delete_race %>
 <%= edit_race %>

@@ -12,6 +12,7 @@ class RacesController < ApplicationController
   end
   
   def show
+    @top_three_times = UserRace.top_three_times
   end
 
   def new
