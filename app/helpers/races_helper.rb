@@ -1,4 +1,10 @@
 module RacesHelper
+    
+    def create_race
+        if logged_in?
+            button_to "Create a New Race", new_race_path, method: :get
+        end
+    end
 
     def find_race(id)
         Race.find_by_id(id)
@@ -16,22 +22,24 @@ module RacesHelper
         end
     end
     
-    def display_errors_for_race
-        if @race.errors.any?
-            content_tag(:h3, "Please note errors below:")
-            content_tag(:ul) do
-                @race.errors.full_messages.each do |m| 
-                    concat content_tag(:li, m) 
-                end
-            end
-        end
-    end
-
     def display_last_race
         if @race
          yield
         end
     end   
+
+    
+    # def display_errors_for_race
+    #     if @race.errors.any?
+    #         content_tag(:h3, "Please note errors below:")
+    #         content_tag(:ul) do
+    #             @race.errors.full_messages.each do |m| 
+    #                 concat content_tag(:li, m) 
+    #             end
+    #         end
+    #     end
+    # end
+
 
     # def display_all_races
     #     content_tag(:ul) do

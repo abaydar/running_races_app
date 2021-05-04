@@ -2,11 +2,7 @@
 <h1><%="#{@user.name}'s Races" %></h1>
 <ul>
   <% @user_races.each do |r| %>
-    <li> <%=link_to find_race(r.race_id).name, race_path(find_race(r.race_id)) %><br>
-    Distance: <%= find_race(r.race_id).distance %><br> 
-    Finish Time: <%=display_finish_time(r.start_time, r.finish_time)%>
-    <%= delete_user_race(r.id, find_race(r.race_id))%>
-    </li>
+    <%= render partial: "user_races/user_race", locals: {r: r} %>
   <% end %> 
   </ul>
 <%else%>

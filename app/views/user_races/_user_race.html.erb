@@ -1,0 +1,6 @@
+    <li>
+    <%=link_to find_race(r.race_id).name, race_path(find_race(r.race_id)) %><br>
+    Distance: <%= find_race(r.race_id).distance %><br> 
+    Finish Time: <%=display_finish_time(r.start_time, r.finish_time)%>
+    <%= delete_user_race(r.id, find_race(r.race_id))%>
+    </li>

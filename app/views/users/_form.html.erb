@@ -1,4 +1,4 @@
-<% display_errors_for_user %>
+<%= render partial: "races/error", locals: {object: @user}%>
 
     <%= p.label :name %>
     <%= p.text_field :name %><br>
