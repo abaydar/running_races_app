@@ -7,12 +7,12 @@ class RacesController < ApplicationController
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
      @user_races = @user.user_races
     else
-      @races = Race.search(params[:query]) 
+      @races = Race.search(params[:query])
+      @top_race = Race.most_popular_race.first 
     end
   end
   
   def show
-    @top_three_times = UserRace.top_three_times
   end
 
   def new

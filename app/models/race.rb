@@ -15,7 +15,9 @@ class Race < ApplicationRecord
           self.all
         end
     end
-    
+
+  scope :most_popular_race, -> {joins(:user_races).group("user_races.user_id").order("count(user_races.user_id) desc").limit(1)}
+ 
 
 end
 

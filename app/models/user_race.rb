@@ -10,10 +10,4 @@ class UserRace < ApplicationRecord
         end
     end
 
-    def finish_time_calculated(start_time, finish_time)
-        t = finish_time - start_time
-        Time.at(t).utc.strftime("%H:%M:%S")
-    end
-
-    # scope :top_three_times, -> {order("finish_time_calculated(:start_time, :finish_time) desc").limit(3)}
 end
