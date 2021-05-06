@@ -6,6 +6,13 @@ module UsersHelper
         end
     end
 
+    def delete_user
+        if logged_in? && @user == current_user
+            button_to 'Delete User', @user ,method: :delete, data: {confirm: "Are you sure?"}
+        end
+    end
+
+
 
     # def display_errors_for_user
     #     if @user.errors.any?

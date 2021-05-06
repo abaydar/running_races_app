@@ -41,7 +41,8 @@ class RacesController < ApplicationController
   end
 
   def destroy
-    @race.destroy 
+    @race.destroy
+    @race.user_races.destroy_all 
     redirect_to races_path
   end
 
@@ -59,6 +60,6 @@ class RacesController < ApplicationController
     if @race.creator_id != current_user.id 
         redirect_to races_path
     end
-end
+  end
 
 end

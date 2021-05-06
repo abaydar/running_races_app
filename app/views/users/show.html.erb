@@ -1,5 +1,5 @@
-<h1>Users#show</h1>
-Name: <%= @user.name %><br>
+<h1><%= @user.name %>'s Page</h1>
+ <br>
 <%= render partial: "user", locals: {user: @user}%>
 
 <%= display_last_race %>
@@ -7,11 +7,13 @@ Name: <%= @user.name %><br>
 
 
 <%= link_to "#{@user.name}'s Races", user_races_path(@user) %><br><br>
-<%= link_to "All Runners", users_path %>
 
 <%= render partial: "races/search" %><br>
 <%= link_to "All Races", races_path %><br><br>
-<%= link_to "All Users", users_path %><br><br>
+<%= link_to "All Runners", users_path %><br><br>
+
 <%= create_race %>
+
+<%= delete_user %>
 
 

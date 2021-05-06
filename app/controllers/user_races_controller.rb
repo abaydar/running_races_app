@@ -20,7 +20,6 @@ class UserRacesController < ApplicationController
   end
 
   def update
-    binding.pry
     @user_race.update(user_race_params)
     redirect_to race_path(@race)
   end
