@@ -30,6 +30,12 @@ module RacesHelper
         end
     end   
 
+    def add_to_my_races
+        if !current_user.user_races.include?(UserRace.find_by(race_id: params[:id]))
+            button_to "Add to My Races", new_race_user_race_path(@race), method: :get
+        end
+    end
+
     # def races_with_finish_time
     #     content_tag(:ul) do 
     #         @user_races.each do |r|

@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to user_path(user)
         else
+            flash[:message] = "There was an error logging you in.  Please make sure your username and password are correct."
             render:new
         end
     end

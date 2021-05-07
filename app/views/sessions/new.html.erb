@@ -1,4 +1,12 @@
 <h1>Login:</h1>
+
+<% flash.keys.each do |type|%>
+    <div id="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <%= flash[type]%>
+    </div>
+<%end%>
+
 <%= form_with url: login_path do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>

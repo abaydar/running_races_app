@@ -3,14 +3,14 @@
 <%= render partial: "race", locals: {race: @race}%>
 
 
-<%= button_to "Add to My Races", new_race_user_race_path(@race), method: :get %>
+<%= add_to_my_races %>
 <br>
 <br>
 
 
 Reviews:<br>
 <ul>
-<% if @race.user_races != [] %>
+<% if @race.user_races %>
     <% @race.user_races.each do |r| %>
       <li>  Ran by: <%= link_to r.user.name, user_path(r.user) %><br>
         Finish Time: <%= display_finish_time(r.start_time, r.finish_time) %><br>

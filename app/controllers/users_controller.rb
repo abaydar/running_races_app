@@ -40,7 +40,8 @@ class UsersController < ApplicationController
   end
 
   def destroy 
-    @user.destroy 
+    @user.destroy
+    @user.user_races.destroy_all 
     redirect_to races_path
   end
 
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :username, :age, :password, race_ids: [])
+    params.require(:user).permit(:name, :username, :age, :password, :password_confirmation)
   end
 
   def redirect_if_not_current_user
