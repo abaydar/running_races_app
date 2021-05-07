@@ -4,7 +4,8 @@
   <% @user_races.each do |r| %>
     <%= render partial: "user_races/user_race", locals: {r: r} %>
   <% end %> 
-  </ul>
+</ul>
+<%= browse_all_races %><br>
 <%else%>
 <h1>All Races</h1>
   <%= render partial: "search" %><br>

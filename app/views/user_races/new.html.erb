@@ -1,4 +1,2 @@
 <h1>Add Start & Finish Times + Review</h1>
-<%= form_with model: @user_race, url: race_user_races_path(@race) do |f| %>
-    <%= render partial: "form", locals: {f: f} %>
-<% end %>
+<%= render partial: "form", locals: {f: @user_race} %>

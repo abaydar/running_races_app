@@ -1,3 +1,5 @@
+<%= form_with model: [@race, @user_race] do |f| %>
+
 <%= render partial: "races/error", locals: {object: @user_race}%>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
@@ -5,9 +7,6 @@
 
     <%= f.label :start_time %>
 
-
-
-    
     <%= f.time_select :start_time, include_seconds: true %><br>
 
     <%= f.label :finish_time %>
@@ -18,3 +17,4 @@
 
     <%= f.submit 'Add to My Races' %>
 
+<% end %>

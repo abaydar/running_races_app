@@ -1,4 +1,3 @@
 <h1>Edit Times/Review</h1>
-<%= form_with model: @user_race, url: race_user_race_path(@race, @user_race) do |f| %>
-    <%= render partial: "form", locals: {f: f} %>
-<% end %>
+
+<%= render partial: "form", locals: {f: @user_race} %>

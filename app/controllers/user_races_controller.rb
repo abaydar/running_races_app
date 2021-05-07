@@ -26,7 +26,7 @@ class UserRacesController < ApplicationController
 
   def destroy
     @user_race.destroy
-    redirect_to races_path
+    redirect_to race_path(@race)
   end
 
 private
