@@ -1,5 +1,5 @@
 <h1>Add a Race:</h1> 
-<%= form_with model: @race, url: races_path  do |f| %>
+<%= form_with model: @race do |f| %>
 
     <%= render partial: "form", locals: {p: f} %>
 

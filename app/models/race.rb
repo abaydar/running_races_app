@@ -7,6 +7,13 @@ class Race < ApplicationRecord
 
     validates :name, :distance, :location, :date, presence: true 
     validates :name, uniqueness: { case_sensitive: false }
+    validate :date_is_in_past 
+
+    def date_is_in_past
+      if date > Date.today
+        errors.add(:date, "must be in the past")
+      end
+    end
 
     def self.search(query)
         if query

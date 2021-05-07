@@ -10,7 +10,7 @@ module UserRacesHelper
             race = Race.find_by_id(race_id)
             user_race = UserRace.find_by_id(id)
             if user_race.user_id == current_user.id
-                button_to "Remove from My Races", race_user_race_path(race, user_race), method: :delete
+                button_to "Remove from My Races", race_user_race_path(race, user_race), method: :delete, data: {confirm: "Are you sure?"}
             end
         end
     end

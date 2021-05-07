@@ -1,9 +1,8 @@
 <h1>All Runners</h1>
+<b>Most races: </b><%= @top_user.name %><br>
+<b>Number of races run: </b><%= @top_user.races.count%><br><br><br>
 <%= render partial: "search" %><br>
 
-Most races:
-<%= @top_user.name %><br>
-Number of races run: <%= @top_user.races.count%>
 
 <ul>
 <% @users.each do |u| %>

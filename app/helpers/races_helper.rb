@@ -11,7 +11,7 @@ module RacesHelper
     
     def delete_race
         if logged_in? && @race.creator_id == current_user.id 
-            button_to "Delete Race", @race, method: :delete
+            button_to "Delete Race", @race, method: :delete, data: {confirm: "Are you sure?"}
         end
     end
 
