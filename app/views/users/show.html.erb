@@ -9,10 +9,9 @@
 <%= link_to "#{@user.name}'s Races", user_races_path(@user) %><br><br>
 
 <%= render partial: "races/search" %><br>
-<%= link_to "All Races", races_path %><br><br>
-<%= link_to "All Runners", users_path %><br><br>
+<%= browse_all_races %><br><br>
+<%= browse_all_runners %><br><br>
 
-<%= create_race %>
 
 <%= delete_user %>
 

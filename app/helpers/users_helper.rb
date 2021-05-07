@@ -8,8 +8,12 @@ module UsersHelper
 
     def delete_user
         if logged_in? && @user == current_user
-            button_to 'Delete User', @user ,method: :delete, data: {confirm: "Are you sure?"}
+            button_to 'Delete Profile', @user ,method: :delete, data: {confirm: "Are you sure?"}
         end
+    end
+
+    def browse_all_runners
+        link_to "Browse all Runners", users_path
     end
 
 

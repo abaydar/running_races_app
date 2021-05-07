@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :redirect_if_not_current_user, :redirect_if_not_logged_in, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.search(params[:query])
     @top_user = User.most_races_run.first
   end
 

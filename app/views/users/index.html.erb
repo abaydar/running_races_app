@@ -1,5 +1,7 @@
-<h1>All Users</h1>
-User with most races:
+<h1>All Runners</h1>
+<%= render partial: "search" %><br>
+
+Most races:
 <%= @top_user.name %><br>
 Number of races run: <%= @top_user.races.count%>
 
@@ -9,4 +11,4 @@ Number of races run: <%= @top_user.races.count%>
     <%= render partial: "user", locals: {user: u}%>
 <%end%>
 </ul>
-<%= link_to "All Races", races_path %>
+<%= browse_all_races %>

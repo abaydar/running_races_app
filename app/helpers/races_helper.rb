@@ -36,6 +36,11 @@ module RacesHelper
         end
     end
 
+    def browse_all_races
+      link_to "Browse all Races", races_path
+    end
+
+
     # def races_with_finish_time
     #     content_tag(:ul) do 
     #         @user_races.each do |r|
