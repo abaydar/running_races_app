@@ -10,7 +10,7 @@ class Race < ApplicationRecord
     validate :date_is_in_past 
 
     def date_is_in_past
-      if date > Date.today
+      if date && date > Date.today
         errors.add(:date, "must be in the past")
       end
     end

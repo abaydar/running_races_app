@@ -8,9 +8,13 @@
 <%= browse_all_races %><br>
 <%else%>
 <h1>All Races</h1>
+
+<% if @top_race %>
   <b>Top Race: </b><%= @top_race.name %><br>
   <b>Number of Runners: </b><%= @top_race.user_races.count%><br><br><br>
-  <%= render partial: "search" %><br>
+<% end %>
+
+<%= render partial: "search" %><br>
   <ul>
   <% @races.each do |r| %>
       <li><%= link_to r.name, race_path(r) %><br>

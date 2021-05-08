@@ -20,8 +20,11 @@ class UserRacesController < ApplicationController
   end
 
   def update
-    @user_race.update(user_race_params)
-    redirect_to race_path(@race)
+    if @user_race.update(user_race_params)
+      redirect_to race_path(@race)
+    else
+      render :new
+    end
   end
 
   def destroy

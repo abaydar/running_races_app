@@ -31,7 +31,7 @@ module RacesHelper
     end   
 
     def add_to_my_races
-        if !current_user.races.include?(Race.find_by_id(params[:id]))
+        if current_user && !current_user.races.include?(Race.find_by_id(params[:id]))
             button_to "Add to My Races", new_race_user_race_path(@race), method: :get
         end
     end

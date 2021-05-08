@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'sessions#new'
+
   get 'user_races/new'
   get 'user_races/edit'
   get '/signup', to: 'users#new'
