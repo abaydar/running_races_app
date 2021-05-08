@@ -23,7 +23,7 @@ class UserRacesController < ApplicationController
     if @user_race.update(user_race_params)
       redirect_to race_path(@race)
     else
-      render :new
+      render :edit
     end
   end
 
