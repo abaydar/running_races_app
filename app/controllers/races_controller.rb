@@ -17,7 +17,7 @@ class RacesController < ApplicationController
 
   def new
     @race = current_user.races.build
-    @user_races = @race.user_races.build
+    @user_race = @race.user_races.build
   end
 
   def create
