@@ -8,8 +8,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, if: :password_digest_changed?
   validates :password, confirmation: { case_sensitive: true }
 
-  
-  scope :most_races_run, -> {joins(:user_races).group("user_races.user_id").order("count(user_races.user_id) desc").limit(1)}
+  scope :most_races_run, -> {joins(:user_races).group("user_races.user_id").order("count(user_races.user_id) desc").limit(3)}
 
   def self.search(query)
     if query
@@ -26,7 +25,8 @@ class User < ApplicationRecord
       u.password = SecureRandom.hex(15)
     end
   end
-
+  
+  # scope :oldest_user, -> {order('age desc').limit(1)}
   # scope :avg_user_age, -> {average('age')}
   # scope :recent_users, ->{order('created_at desc').includes(:user_races).limit(10)}
 

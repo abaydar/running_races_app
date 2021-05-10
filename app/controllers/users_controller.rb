@@ -6,8 +6,8 @@ class UsersController < ApplicationController
     @users = User.search(params[:query])
   end
 
-  def top_user
-    @top_user = User.most_races_run.first
+  def top_runners
+    @top_runners = User.most_races_run
   end
 
   def show

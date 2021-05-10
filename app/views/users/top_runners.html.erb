@@ -1,0 +1,9 @@
+<h1>Top Runners</h1>
+
+<% if @top_runners %>
+<ol>
+    <% @top_runners.each do |r| %>
+           <li><%= link_to r.name, user_races_path(r) %> - <%= r.races.count%> races </li><br>
+    <% end %>
+</ol>
+<% end %>
