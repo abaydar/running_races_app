@@ -1,0 +1,7 @@
+<h1>Top Runner page</h1>
+
+<% if @top_user %>
+    <h2><%= @top_user.name %></h2><br>
+    <b>Number of <%= link_to "races", user_races_path(@top_user) %> run: </b><%= @top_user.races.count %>
+    
+<% end %>

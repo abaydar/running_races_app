@@ -1,8 +1,6 @@
 <h1>All Runners</h1>
-<% if @top_user %>
-    <b>Most races: </b><%= @top_user.name %><br>
-    <b>Number of races run: </b><%= @top_user.races.count%><br><br><br>
-<% end %>
+
+<%= link_to "Top Runner", top_user_path %><br><br>
 
 <%= render partial: "search" %><br>
 

@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def index
     @users = User.search(params[:query])
+  end
+
+  def top_user
     @top_user = User.most_races_run.first
   end
 
