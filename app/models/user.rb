@@ -2,9 +2,9 @@ class User < ApplicationRecord
   has_secure_password
   has_many :user_races
   has_many :races, through: :user_races
-  validates :name, :username, :age, presence: true
+  validates :name, :username, presence: true
   validates :username, uniqueness: true
-  validates :age, numericality: { only_integer: true }
+  validates :age, allow_blank: true, numericality: { only_integer: true }
   validates :password, length: { minimum: 6 }, if: :password_digest_changed?
   validates :password, confirmation: { case_sensitive: true }
 
@@ -16,6 +16,14 @@ class User < ApplicationRecord
       self.where('name LIKE ?', "%#{query}%")
     else
       self.all
+    end
+  end
+
+  def self.omniauth(response)
+    user = User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|  
+      u.username = response[:info][:email]
+      u.name = response[:info][:name]
+      u.password = SecureRandom.hex(15)
     end
   end
 

@@ -12,6 +12,12 @@ module UsersHelper
         end
     end
 
+    def edit_user
+        if logged_in? && @user == current_user
+            link_to 'Edit Profile', edit_user_path(@user)
+        end
+    end
+
     def browse_all_runners
         link_to "Browse all Runners", users_path
     end
