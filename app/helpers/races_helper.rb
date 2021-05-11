@@ -5,6 +5,7 @@ module RacesHelper
             button_to "Create a New Race", new_race_path, method: :get
         end
     end
+    
     def find_race(id)
         Race.find_by_id(id)
     end
@@ -40,20 +41,5 @@ module RacesHelper
       link_to "Browse all Races", races_path
     end
 
-
-    # def races_with_finish_time
-    #     content_tag(:ul) do 
-    #         @user_races.each do |r|
-    #             content_tag(:li) do 
-    #                 concat link_to find_race(r.race_id).name, race_path(find_race(r.race_id)
-    #                 concat "Distance: "
-    #                 concat find_race(r.race_id).distance} 
-    #                 concat "Finish Time: "
-    #                 concat display_finish_time(r.start_time, r.finish_time)
-    #             end
-    #         end
-    #     end
-    # end 
-  
 
 end

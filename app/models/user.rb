@@ -26,10 +26,6 @@ class User < ApplicationRecord
     end
   end
   
-  # scope :oldest_user, -> {order('age desc').limit(1)}
-  # scope :avg_user_age, -> {average('age')}
-  # scope :recent_users, ->{order('created_at desc').includes(:user_races).limit(10)}
-
 end
 
 
