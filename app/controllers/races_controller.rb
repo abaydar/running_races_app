@@ -8,7 +8,7 @@ class RacesController < ApplicationController
      @user_races = @user.user_races
     else
       @races = Race.search(params[:query])
-      @top_race = Race.most_popular_race.first 
+      # @top_race = Race.most_popular_race.first 
     end
   end
   
