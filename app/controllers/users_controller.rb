@@ -48,6 +48,11 @@ class UsersController < ApplicationController
     redirect_to races_path
   end
 
+  # def old_users
+  #   @old_users = User.old_users
+  # end
+
+
   private
   
   def get_user

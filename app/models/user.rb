@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   scope :most_races_run, -> {joins(:user_races).group("user_races.user_id").order("count(user_races.user_id) desc").limit(3)}
 
+  # scope :old_users, -> {where("age > 27")}  
+  
   def self.search(query)
     if query
       self.where('name LIKE ?', "%#{query}%")

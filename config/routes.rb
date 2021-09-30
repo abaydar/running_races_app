@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   get '/top_runners', to: 'users#top_runners'
+  get 'users/old_users', to: 'users#old_users'
 
   resources :races do 
     resources :user_races, only: [:new, :create, :edit, :update, :destroy]
